@@ -1,0 +1,95 @@
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, Button} from 'react-native';
+
+const YourApp = () => {
+
+  var initialColor = 'red';
+
+  // buton 1 code: 
+
+  const [box1Color, setBox1Color] = useState(initialColor);
+  
+  const [button1ClickCount, setButton1ClickCount] = useState(0);
+
+  const button1ClickHandler = () => {
+
+    if (button1ClickCount == 0 || button1ClickCount % 2 == 0) 
+      setBox1Color('blue');
+    else
+      setBox1Color(initialColor);
+
+      setButton1ClickCount(button1ClickCount + 1);
+  }
+  
+// end of button1 code;
+
+
+  const [box2Color, setBox2Color] = useState(initialColor);
+
+  const [button2ClickCount, setButton2ClickCount] = useState(0);
+
+  const button2ClickHandler = () => {
+
+    if (button2ClickCount == 0 || button2ClickCount % 2 == 0) 
+      setBox2Color('green');
+    else
+      setBox2Color(initialColor);
+
+      setButton2ClickCount(button2ClickCount + 1);
+  }
+
+  
+
+  return (
+    <View
+    style={[
+      styles.myStyle,
+      {
+        flexDirection: 'row',
+        
+      },
+    ]}>
+
+        <View style={{flex: 1, backgroundColor: 'red', padding: 15, gap: 50 }} >
+
+          <Button title='Button1' onPress={button1ClickHandler} />
+
+          <Button title='Button1' onPress={button2ClickHandler} />
+          
+        </View>
+
+        <View style={{flex: 1, backgroundColor: 'darkorange', padding: 15, gap: 45 }} >
+          <Text style = {[styles.headline, {backgroundColor: box1Color},]}>
+            box1
+          </Text>
+
+          <Text style = {[styles.headline, {backgroundColor: box2Color},]}>
+            box1
+          </Text>
+
+        </View>
+
+    </View>
+  );
+};
+
+
+const styles = StyleSheet.create ({
+  myStyle: {
+    flex: 1,
+    padding: 20,
+  },
+
+  headline: {
+    textAlign: 'center',
+    fontSize: 20,
+    borderColor: 'black',
+    borderWidth: 7,
+  }
+})
+
+export default YourApp;
+
+// cmd - npm start 
+// vscode -- npm run android
+
