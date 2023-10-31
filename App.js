@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 
+// some comment
+
 const YourApp = () => {
  
   let initialColor = 'white';
